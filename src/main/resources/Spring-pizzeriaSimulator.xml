@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring-Common.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+	<bean id="Pizzeria" class="pl.agh.edu.pizzeriaSimulator.Pizzeria">
+		<property name="customer" value="Pizza Lover" />
+		<property name="order" ref="Email" />
+		<property name="pizza" ref="Margerita" />
+		<constructor-arg>
+			<bean class="pl.agh.edu.pizzeriaSimulator.delivery.impl.TakeAway" />
+		</constructor-arg>
+	</bean>
+ 
+	<bean id="Phone" class="pl.agh.edu.pizzeriaSimulator.order.impl.PhoneOrder" />
+	<bean id="Email" class="pl.agh.edu.pizzeriaSimulator.order.impl.EmailOrder" />
+ 
+	<bean id="Margerita" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.MargeritaPizza" />
+	<bean id="Capricciosa" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.CapricciosaPizza" />
+	<bean id="Pugliese" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.PugliesePizza" />
+	<bean id="Kebab" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.KebabPizza" />
+	
+	<bean id="TakeAway" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.TakeAway" />
+	<bean id="HomeDelivery" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.HomeDelivery" />
+ 
+</beans>
