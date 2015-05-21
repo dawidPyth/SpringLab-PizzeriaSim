@@ -5,24 +5,32 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
-	<bean id="Pizzeria" class="pl.agh.edu.pizzeriaSimulator.Pizzeria">
-		<property name="customer" value="Pizza Lover" />
-		<property name="order" ref="Email" />
-		<property name="pizza" ref="Margerita" />
-		<constructor-arg>
-			<bean class="pl.agh.edu.pizzeriaSimulator.delivery.impl.TakeAway" />
-		</constructor-arg>
+	<bean id="Customer" class="pl.agh.edu.pizzeriaSimulator.Customer">
+		<constructor-arg value="Pizza Lover"/>
+		<property name="order" ref="Email" />	
 	</bean>
  
-	<bean id="Phone" class="pl.agh.edu.pizzeriaSimulator.order.impl.PhoneOrder" />
-	<bean id="Email" class="pl.agh.edu.pizzeriaSimulator.order.impl.EmailOrder" />
+	<bean id="Phone" class="pl.agh.edu.pizzeriaSimulator.order.impl.PhoneOrder">
+		<property name="pizzeria" ref="MexicoPizza"/>
+	</bean>
+	<bean id="Email" class="pl.agh.edu.pizzeriaSimulator.order.impl.EmailOrder">
+		<property name="pizzeria" ref="PizzaMaybe"/>
+	</bean>
  
-	<bean id="Margerita" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.MargeritaPizza" />
-	<bean id="Capricciosa" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.CapricciosaPizza" />
-	<bean id="Pugliese" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.PugliesePizza" />
-	<bean id="Kebab" class="pl.agh.edu.pizzeriaSimulator.pizza.impl.KebabPizza" />
+	<bean id="MexicoPizza" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.MexicoPizza">
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Capricciosa Chili"/>
+	</bean>	
+	<bean id="PizzaMaybe" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.PizzaMaybe" >
+		<property name="delivery" ref="OnTheFly"/>
+		<property name="pizzaType" value="Pugliese"/>
+	</bean>
+	<bean id="TruePizza" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.TruePizza" >
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Margerita"/>
+	</bean>
 	
-	<bean id="TakeAway" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.TakeAway" />
+	<bean id="OnTheFly" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.OnTheFly" />
 	<bean id="HomeDelivery" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.HomeDelivery" />
  
 </beans>

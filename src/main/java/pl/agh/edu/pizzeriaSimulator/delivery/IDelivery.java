@@ -1,7 +1,9 @@
 package pl.agh.edu.pizzeriaSimulator.delivery;
 
+import pl.agh.edu.pizzeriaSimulator.Pizza;
+
 public interface IDelivery {
 
-	public void deliverPizza();
-	public String choice();
+	public void deliver(Pizza pizza);
+	
 }

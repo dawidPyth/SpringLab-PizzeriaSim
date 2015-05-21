@@ -2,6 +2,6 @@ package pl.agh.edu.pizzeriaSimulator.order;
 
 public interface IOrder {
 
-	public void acceptOrder();
-	
+	public void order(String customerName);
+		
 }

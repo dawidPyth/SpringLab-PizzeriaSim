@@ -13,8 +13,8 @@ public class App
     {
     	ApplicationContext context = 
  	    	   new ClassPathXmlApplicationContext(new String[] {"Spring-pizzeriaSimulator.xml"});
- 	 
- 	    	Pizzeria pizzeria = (Pizzeria)context.getBean("Pizzeria");
- 	    	pizzeria.runPizzeria();
+    	
+ 	    Customer customer = (Customer)context.getBean("Customer");
+ 	    customer.iWantPizza();
     }
 }
