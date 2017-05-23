@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+ 	<bean id="IPizzeria" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.MexicoPizza">
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Capricciosa Chili"/>
+	</bean>	
+	
+	<bean id="Phone" class="pl.agh.edu.pizzeriaSimulator.order.impl.PhoneOrder">
+		<property name="pizzeria" ref="MexicoPizza"/>
+	</bean>
+	<bean id="Email" class="pl.agh.edu.pizzeriaSimulator.order.impl.EmailOrder">
+		<property name="pizzeria" ref="PizzaMaybe"/>
+	</bean>
+ 
+	<bean id="MexicoPizza" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.MexicoPizza">
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Capricciosa Chili"/>
+	</bean>	
+	<bean id="PizzaMaybe" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.PizzaMaybe" >
+		<property name="delivery" ref="EatInside"/>
+		<property name="pizzaType" value="Pugliese"/>
+	</bean>
+	<bean id="TruePizza" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.TruePizza" >
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Margerita"/>
+	</bean>
+	
+	<bean id="EatInside" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.EatInside"/>
+	<bean id="EatOnTheTerrace" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.EatOnTheTerrace"/>
+	<bean id="OnTheFly" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.OnTheFly" />
+	<bean id="HomeDelivery" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.HomeDelivery" />
+</beans>

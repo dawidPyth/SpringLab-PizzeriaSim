@@ -1,6 +1,7 @@
 package pl.agh.edu.pizzeriaSimulator;
 
-import pl.agh.edu.pizzeriaSimulator.order.IOrder;;
+import pl.agh.edu.pizzeriaSimulator.order.IOrder;
+
 
 public class Customer {
 	String customerName;
@@ -16,6 +17,10 @@ public class Customer {
 	
 	public void setOrder(IOrder order) {
 		this.order = order;
+	}
+	
+	public String getName() {
+		return this.customerName;
 	}
 
 }

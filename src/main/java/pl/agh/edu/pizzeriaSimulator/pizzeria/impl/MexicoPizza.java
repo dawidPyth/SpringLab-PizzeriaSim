@@ -1,8 +1,11 @@
 package pl.agh.edu.pizzeriaSimulator.pizzeria.impl;
 
+import pl.agh.edu.pizzeriaSimulator.Customer;
 import pl.agh.edu.pizzeriaSimulator.Pizza;
 import pl.agh.edu.pizzeriaSimulator.delivery.IDelivery;
+import pl.agh.edu.pizzeriaSimulator.order.impl.DirectOrder;
 import pl.agh.edu.pizzeriaSimulator.pizzeria.IPizzeria;
+
 
 public class MexicoPizza implements IPizzeria {
 	
@@ -26,5 +29,17 @@ public class MexicoPizza implements IPizzeria {
 	public void setPizzaType(String pizzaType) {
 		this.pizzaType = pizzaType;
 	}
+
+	
+	public void makeAnOrderInThePizzeria() {
+		
+		DirectOrder order = new DirectOrder();
+		Customer customer = new Customer("Customer");
+		
+		order.order(customer.getName());
+		bake(order.getPizza());
+				
+	}
+
 	
 }
